@@ -17,6 +17,10 @@
 
 ---
 
-### import
+## need to import
 
-- react-modal
+- react-modal (you can use npm or yarn)
+  ```
+  $ npm install --save react-modal
+  $ yarn add react-modal
+  ```
