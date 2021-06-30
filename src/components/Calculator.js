@@ -3,6 +3,7 @@ import "./Calculator.css";
 import Button from "./Button";
 import HistoryModal from './HistoryModal';
 
+
 function Calculator() {
     const buttonArray = [
         '', '%', '/', 'AC', 
