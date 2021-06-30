@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import "./Calculator.css";
 import Button from "./Button";
 import History from './History';
 import HistoryModal from './HistoryModal';
 import Modal from 'react-modal';
-// import history_icon from '../img/historyIcon';
 
+Modal.setAppElement('*')
 
 function Calculator() {
     const buttonArray = [
@@ -85,10 +85,9 @@ function Calculator() {
                 setHistory(tmpArray);
             } catch (e) {
                 if (e instanceof SyntaxError){
-                    console.log("warning!");
+                    console.warn("warning!");
                 }
             }
-
         } 
         
         //input AC. reset.
@@ -112,12 +111,10 @@ function Calculator() {
         setHistoryModalOpen(false);
     }
 
-
     return (        
         <div className='calculator'>
-
             <div className='calculator-history'>
-                {/* history */}
+                {/* history start */}
                 <div className='history'>
                     {/* history open button */}
                     <button onClick={() => setHistoryModalOpen(true)}>
@@ -126,24 +123,25 @@ function Calculator() {
                         </svg>
                     </button>
 
-
-
-                    {/* history modal */}
+                    {/* history modal start */}
                     <Modal isOpen={historyModalOpen} onRequestClose={() => setHistoryModalOpen(false)} style={modalStyle}>
                         {history.map(
                             (value, index) =>
                             (
-                                <li>
+                                <li key={index}>
                                     <History className='history-line' onClick={onClick_History}
                                         formula={value.formula} result={value.result}/>
                                 </li>
                             )
                         )}
                     </Modal>
+                    {/* history modal end */}
                     {/* <HistoryModal isOpen={historyModalOpen} onModalClose={closeHistoryModal}/> */}
                 </div>
+                {/* history end */}
             </div>
 
+            {/* calculator main start */}
             <div className='calculator-main'>
                 {/* calculator input & result */}
                 <div className='calcul-input'>
@@ -152,19 +150,21 @@ function Calculator() {
                         onChange={({target: {value}}) => setInputValue(value)}/>
                 </div>
 
-                {/* calculator buttons */}
+                {/* calculator buttons start */}
                 <div className='calcul-btns'>
                     {buttonArray.map(
                         (value, index) =>
                         (
-                            <li>
+                            <li key={index}>
                                 <Button className='calcul-btn' onClick={onClick_CalculBtn}
                                     text={value}/>
                             </li>
                         )
                     )}
                 </div>
+                {/* calculator buttons end */}
             </div>
+            {/* calculator main end */}
         </div>
     );
 }

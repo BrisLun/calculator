@@ -6,7 +6,7 @@
 
 - 사칙연산 계산
   > 키보드 또는 버튼으로 입력 가능
-- history 확인
+- history 확인 (modal)
 - history를 현재 입력값으로 불러오기
 
 ---
