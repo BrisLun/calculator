@@ -5,23 +5,64 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 240px;
+  padding: 0;
+  margin: 0;
 }
 
-.calculator_btns {
+.calcul-input {
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 50px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.calcul-input input:focus {
+  outline: 1px rgb(83, 83, 83);
+}
+
+.formula,
+.input-value {
+  float: right;
+  margin: 3px;
+  text-align: right;
+  overflow: auto;
+}
+
+.formula {
+  font-weight: 300;
+  color: #70757a;
+  font-size: 13px;
+  height: 17px;
+}
+
+.input-value {
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.calcul-btns {
   list-style: none;
   padding: 0;
   display: flex;
-  margin: 10px 0px;
-  width: 240px;
+  margin: 5px 0px;
   flex-wrap: wrap;
 }
 
-.calculator_btns li {
+.calcul-btns li {
   margin: 5px;
   font-size: 14px;
 }
 
-.calculator_btns button {
+.calcul-btns button {
   padding: 5px;
   width: 50px;
   height: 50px;
@@ -29,17 +70,47 @@
   background-color: white;
   border: none;
   border-radius: 5px;
-
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
     rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.calculator_btns button:hover {
+.calcul-btns button:hover {
   background-color: rgb(236, 236, 236);
 }
 
-.calculator_btns button:active {
+.calcul-btns button:active {
   background-color: rgb(236, 236, 236);
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 5.2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #808080;
+}
+::-webkit-scrollbar-button {
+  display: none;
 }

@@ -1,0 +1,21 @@
+.history-line {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  align-items: center;
+}
+
+.history-line h5 {
+  margin: 0;
+  padding: 0;
+  color: #70757a;
+}
+
+.history-btn {
+  padding: 7px 10px;
+  margin: 5px;
+  height: fit-content;
+  border: 1px solid #dfe1e5;
+  border-radius: 5px;
+  background-color: white;
+}
