@@ -3,10 +3,11 @@ import Modal from 'react-modal';
 
 // Modal.setAppElement('#app')
 
-const HistoryModal = ({open_history, onModalClose}) => (
+const HistoryModal = ({modalOpen, onModalClose}) => (
+                // {/* <Modal isOpen={historyModalOpen} onRequestClose={() => setHistoryModalOpen(false)}>
+
   <Modal
-    isOpen={!!open_history}
-    contentLabel="history"
+    isOpen={modalOpen}
     onRequestClose={onModalClose}
   >
     <h3>Selected Option</h3>
