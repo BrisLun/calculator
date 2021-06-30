@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import "./Calculator.css";
 import Button from "./Button";
-import History from './History';
 import HistoryModal from './HistoryModal';
-import Modal from 'react-modal';
-
-Modal.setAppElement('*')
 
 function Calculator() {
     const buttonArray = [
@@ -22,32 +18,6 @@ function Calculator() {
     const [history, setHistory] = useState([]);
 
     const [historyModalOpen, setHistoryModalOpen] = useState(false);
-
-    const modalStyle = {
-        overlay: {
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-          },
-          content: {
-            position: 'relative',
-            listStyle: 'none',
-            width: '33%',
-            height: 'fit-content',
-            maxHeight: '300px',
-            top: '10%',
-            left: '33%',
-            right: '33%',
-            bottom: '10%',
-            border: '1px solid #ccc',
-            textAlign: 'center',
-            backgroundColor: 'white',
-            overflow: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            borderRadius: '4px',
-            outline: 'none',
-            padding: '10px',            
-            boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
-          }
-      }
 
     // calculator button clicked
     function onClick_CalculBtn(value){
@@ -102,7 +72,7 @@ function Calculator() {
     }
 
     // history button clicked
-    function onClick_History(value){
+    function onClickHistory(value){
         setInputValue(value);
         setHistoryModalOpen(false);
     }
@@ -123,20 +93,8 @@ function Calculator() {
                         </svg>
                     </button>
 
-                    {/* history modal start */}
-                    <Modal isOpen={historyModalOpen} onRequestClose={() => setHistoryModalOpen(false)} style={modalStyle}>
-                        {history.map(
-                            (value, index) =>
-                            (
-                                <li key={index}>
-                                    <History className='history-line' onClick={onClick_History}
-                                        formula={value.formula} result={value.result}/>
-                                </li>
-                            )
-                        )}
-                    </Modal>
-                    {/* history modal end */}
-                    {/* <HistoryModal isOpen={historyModalOpen} onModalClose={closeHistoryModal}/> */}
+                    {/* history modal */}
+                    <HistoryModal isOpen={historyModalOpen} onModalClose={closeHistoryModal} history={history} onClickHistory={onClickHistory}/>
                 </div>
                 {/* history end */}
             </div>
