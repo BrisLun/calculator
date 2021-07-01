@@ -12,6 +12,7 @@ function Calculator() {
         '', '0', '.', '='
     ];
     const signs=['%', '/', '*', '-', '+'];
+    const keyboardArray = buttonArray.filter(n => !['AC', '='].includes(n));
     const [inputValue, setInputValue] = useState('');
     const [formula, setFormula] = useState('');
     const [Calculate, setCalculate] = useState(false);
@@ -68,6 +69,19 @@ function Calculator() {
         }
     }
 
+    // calculator input changed
+    function onChange_CalculInput(value){
+      if (keyboardArray.includes(value.slice(-1))){
+        onClick_CalculBtn(value.slice(-1));
+      }
+    }
+
+    function handleKeyPress(e){
+      if(e.key === 'Enter'){
+        onClick_CalculBtn('=');
+      }
+    }
+
     // history button clicked
     function onClickHistory(value){
         setInputValue(value);
@@ -101,8 +115,8 @@ function Calculator() {
                 {/* calculator input & result */}
                 <div className='calcul-input'>
                     <h6 className='formula'>{formula}</h6>
-                    <input className='input-value' value= {inputValue}
-                        onChange={({target: {value}}) => setInputValue(value)}/>
+                    <input className='input-value' value= {inputValue} onKeyPress={handleKeyPress}
+                        onChange={({target: {value}}) => onChange_CalculInput(value)}/>
                 </div>
 
                 {/* calculator buttons start */}
