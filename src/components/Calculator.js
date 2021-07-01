@@ -71,6 +71,7 @@ function Calculator() {
 
     // calculator input changed
     function onChange_CalculInput(value){
+      // recognize only certain keys
       if (keyboardArray.includes(value.slice(-1))){
         onClick_CalculBtn(value.slice(-1));
       }
