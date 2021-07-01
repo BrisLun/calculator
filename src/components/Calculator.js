@@ -3,7 +3,6 @@ import "./Calculator.css";
 import Button from "./Button";
 import HistoryModal from './HistoryModal';
 
-
 function Calculator() {
     const buttonArray = [
         '', '%', '/', 'AC', 
@@ -50,10 +49,7 @@ function Calculator() {
                 setInputValue(tmp_inputvalue);
                 setCalculate(true);
 
-                let tmpArray = history.concat({
-                    formula : inputValue, result : tmp_inputvalue
-                });
-                setHistory(tmpArray);
+                setHistory(history.concat({formula : inputValue, result : tmp_inputvalue}));
             } catch (e) {
                 if (e instanceof SyntaxError){
                     console.warn("warning!");
