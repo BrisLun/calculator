@@ -76,6 +76,7 @@ function Calculator() {
       }
     }
 
+    // when enter key pressed
     function handleKeyPress(e){
       if(e.key === 'Enter'){
         onClick_CalculBtn('=');
